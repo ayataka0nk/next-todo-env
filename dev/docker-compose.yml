@@ -1,0 +1,15 @@
+version: '3'
+services:
+  dev:
+    image: ayataka0nk/next-todo-dev:0.1.0
+    volumes:
+      - next-todo-dev:/workspace
+      - ./optionfiles:/optionfiles
+      - ./entrypoint.sh:/entrypoint.sh
+    tty: true
+    working_dir: /workspace
+    entrypoint: ["bash", "/entrypoint.sh"]
+volumes:
+  next-todo-dev:
+    driver: local
+  
