@@ -5,7 +5,6 @@ services:
     volumes:
       - next-todo-dev:/workspace
       - ./optionfiles:/optionfiles
-      - ./entrypoint.sh:/entrypoint.sh
     tty: true
     working_dir: /workspace
     command: >
