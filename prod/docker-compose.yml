@@ -1,0 +1,7 @@
+version: '3'
+services:
+    next-todo-api:
+        image: ayataka0nk/next-todo-api-prod:master
+        ports:
+            - "127.0.0.1:8001:80"
+        tty: true
