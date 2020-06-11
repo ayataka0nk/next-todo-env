@@ -1,11 +1,11 @@
 version: '3'
 services:
     next-todo-api:
-        image: ayataka0nk/next-todo-api-prod:master
+        image: ayataka0nk/next-todo-api:master
         networks:
             - front
     next-todo-view:
-        image: ayataka0nk/next-todo-view-prod:master
+        image: ayataka0nk/next-todo-view:master
         ports:
             - "8080:3000"
         networks:
