@@ -3,19 +3,16 @@ services:
   dev:
     image: ayataka0nk/next-todo-dev:0.1.0
     volumes:
-      - next-todo-dev:/workspace
-      - ./optionfiles:/optionfiles
+      - next-todo-dev:/root/workspace
+      - ./id_rsa:/required/id_rsa
     tty: true
-    working_dir: /workspace
-    command: >
-      bash -c '
-      mkdir /root/.ssh &&
-      chmod 700 /root/.ssh &&
-      cp -R /optionfiles/id_rsa /root/.ssh/id_rsa &&
-      chmod 600 /root/.ssh/id_rsa &&
-      git config --global user.email "$GIT_USER_EMAIL" &&
-      git config --global user.name "$GIT_USER_NAME" &&
-      /bin/bash'
+    working_dir: /root/workspace
+    ports:
+      - "127.0.0.1:8000:8000"
+      - "127.0.0.1:3000:3000"
+    environment: 
+      GIT_USER_EMAIL: $GIT_USER_EMAIL
+      GIT_USER_NAME: $GIT_USER_NAME
 volumes:
   next-todo-dev:
     driver: local

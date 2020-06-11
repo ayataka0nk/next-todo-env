@@ -6,7 +6,13 @@ RUN apt-get update && apt-get install -y \
     curl \
     iproute2 \
     iputils-ping \
+    php7.4 \
+    composer \
+    php-zip \
+    phpunit \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 RUN npm install n -g && n 12.18
 RUN apt-get purge npm -y
+COPY ./entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
