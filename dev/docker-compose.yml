@@ -1,14 +1,14 @@
 version: '3'
 services:
   dev:
-    image: ayataka0nk/next-todo-dev:0.1.0
+    image: ayataka0nk/next-todo-dev:latest
     volumes:
       - next-todo-dev:/root/workspace
       - ./id_rsa:/required/id_rsa
     tty: true
     working_dir: /root/workspace
     ports:
-      - "127.0.0.1:8000:8000"
+      - "127.0.0.1:9000:8000"
       - "127.0.0.1:3000:3000"
     environment: 
       GIT_USER_EMAIL: $GIT_USER_EMAIL
