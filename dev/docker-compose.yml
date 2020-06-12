@@ -1,0 +1,17 @@
+version: '3'
+services:
+    next-todo-view-dev:
+        image: ayataka0nk/next-todo-view-dev:latest
+        volumes:
+            - next-todo-view-dev:/workspace
+        ports:
+            - '127.0.0.1:3000:3000'
+        tty: true
+        command: >
+            sh -c '
+                git config --global user.email "$GIT_USER_EMAIL" &&
+                git config --global user.name "$GIT_USER_NAME" &&
+                sh'
+volumes:
+    next-todo-view-dev:
+        driver: local
