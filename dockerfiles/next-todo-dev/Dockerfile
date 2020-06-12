@@ -14,5 +14,6 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 RUN npm install n -g && n 12.18
 RUN apt-get purge npm -y
+RUN docker-php-ext-install pdo_mysql mysqli mbstring
 COPY dockerfiles/next-todo-dev/entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/bin/bash", "/entrypoint.sh"]
