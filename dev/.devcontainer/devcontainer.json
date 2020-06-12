@@ -17,11 +17,13 @@
 
 	// The optional 'workspaceFolder' property is the path VS Code should open by default when
 	// connected. This is typically a file mount in .devcontainer/docker-compose.yml
-	"workspaceFolder": "/workspace",
+	"workspaceFolder": "/workspace/next-todo-view",
 
 	// Set *default* container specific settings.json values on container create.
 	"settings": {
-		"terminal.integrated.shell.linux": null
+		"terminal.integrated.shell.linux": null,
+		"eslint.format.enable": true,
+		"typescript.validate.enable": false
 	},
 
 	// Add the IDs of extensions you want installed when the container is created.
