@@ -1,11 +1,12 @@
 version: '3'
 services:
-    next-todo-view-dev:
-        image: ayataka0nk/next-todo-view-dev:latest
+    todo-view-next-dev:
+        image: ayataka0nk/todo-view-next-dev:master
         volumes:
-            - next-todo-view-dev:/workspace
+            - todo-view-next-dev:/workspace
         ports:
             - '127.0.0.1:3000:3000'
+        working_dir: /workspace
         tty: true
         command: >
             sh -c '
@@ -13,5 +14,5 @@ services:
                 git config --global user.name "$GIT_USER_NAME" &&
                 sh'
 volumes:
-    next-todo-view-dev:
+    todo-view-next-dev:
         driver: local
