@@ -1,0 +1,18 @@
+version: '3'
+services:
+    todo-api-dev:
+        image: ayataka0nk/todo-api-express-dev:master
+        volumes:
+            - todo-api-dev:/workspace
+        ports:
+            - '127.0.0.1:3100:3000'
+        working_dir: /workspace
+        tty: true
+        command: >
+            sh -c '
+                git config --global user.email "$GIT_USER_EMAIL" &&
+                git config --global user.name "$GIT_USER_NAME" &&
+                sh'
+volumes:
+    todo-api-dev:
+        driver: local
