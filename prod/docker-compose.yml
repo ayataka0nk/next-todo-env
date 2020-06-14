@@ -1,11 +1,13 @@
 version: '3'
 services:
-    next-todo-api:
-        image: ayataka0nk/next-todo-api:master
+    todo-api-express:
+        image: ayataka0nk/todo-api-express:master
+        ports:
+            - "8090:3000"
         networks:
             - front
-    next-todo-view:
-        image: ayataka0nk/next-todo-view:master
+    next-view-next:
+        image: ayataka0nk/todo-view-next:master
         ports:
             - "8080:3000"
         networks:
