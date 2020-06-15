@@ -1,23 +1,28 @@
 version: "3"
 services:
-    todo-api-express:
-        image: ayataka0nk/todo-api-express:master
-        ports:
-            - "8090:3000"
-        networks:
-            - front
     next-view-next:
-        image: ayataka0nk/todo-view-next:master
+        image: ayataka0nk/todo-view-next:${VIEW_TAG:-master}
         ports:
             - "8080:3000"
+        environment:
+            API_ORIGIN: http://todo-api-express
+        networks:
+            - front
+
+    todo-api-express:
+        image: ayataka0nk/todo-api-express:${API_TAG:-master}
+        ports:
+            - "127.0.0.1:8090:80"
+        networks:
+            - front
+            - back
         environment:
             ORMCONFIG_HOST: db
             ORMCONFIG_PORT: 3306
             ORMCONFIG_USERNAME: todoapp
             ORMCONFIG_PASSWORD: $ORMCONFIG_PASSWORD
-        networks:
-            - front
-            - back
+        depends_on:
+            - db
     db:
         image: mysql:8
         command: --default-authentication-plugin=mysql_native_password
@@ -33,7 +38,7 @@ services:
     adminer:
         image: adminer
         ports:
-            - 8100:8080
+            - 8092:8080
         networks:
             - back
 volumes:

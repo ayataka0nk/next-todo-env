@@ -5,7 +5,7 @@ services:
         volumes:
             - todo-view-next-dev:/workspace
         ports:
-            - '127.0.0.1:3000:3000'
+            - '127.0.0.1:18080:3000'
         working_dir: /workspace
         tty: true
         command: >
