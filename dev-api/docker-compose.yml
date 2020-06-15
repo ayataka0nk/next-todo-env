@@ -8,11 +8,33 @@ services:
             - '127.0.0.1:3100:3000'
         working_dir: /workspace
         tty: true
+        environment:
+            ORMCONFIG_HOST: db
+            ORMCONFIG_PORT: 3306
+            ORMCONFIG_USERNAME: todoapp
+            ORMCONFIG_PASSWORD: $ORMCONFIG_PASSWORD
         command: >
             sh -c '
                 git config --global user.email "$GIT_USER_EMAIL" &&
                 git config --global user.name "$GIT_USER_NAME" &&
                 sh'
+    db:
+      image: mysql:8
+      command: --default-authentication-plugin=mysql_native_password
+      environment:
+        MYSQL_ROOT_PASSWORD: $MYSQL_ROOT_PASSWORD
+        MYSQL_DATABASE: todoapp
+        MYSQL_USER: todoapp
+        MYSQL_PASSWORD: $MYSQL_PASSWORD
+      volumes:
+        - todo-db-dev:/var/lib/mysql
+    adminer:
+      image: adminer
+      ports:
+        - 8100:8080
+
 volumes:
     todo-api-dev:
+        driver: local
+    todo-db-dev:
         driver: local
