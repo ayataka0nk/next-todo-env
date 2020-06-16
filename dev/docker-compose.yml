@@ -8,6 +8,9 @@ services:
             - '127.0.0.1:18080:3000'
         working_dir: /workspace
         tty: true
+        environment:
+            API_ORIGIN: 'http://127.0.0.1:3000'
+            NEXT_PUBLIC_API_ORIGIN: 'http://127.0.0.1:18080'
         command: >
             sh -c '
                 git config --global user.email "$GIT_USER_EMAIL" &&
