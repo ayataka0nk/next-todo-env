@@ -5,7 +5,7 @@ services:
         volumes:
             - todo-api-dev:/workspace
         ports:
-            - '127.0.0.1:18090:3000'
+            - '127.0.0.1:18090:80'
         working_dir: /workspace
         tty: true
         environment:
