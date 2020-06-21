@@ -23,7 +23,7 @@
 	"settings": {
 		"terminal.integrated.shell.linux": null,
 		"eslint.format.enable": true,
-		"typescript.validate.enable": false,
+		"typescript.validate.enable": true,
 		"editor.formatOnSave": true,
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
@@ -32,7 +32,6 @@
 	"extensions": [
 		"esbenp.prettier-vscode",
 		"blanu.vscode-styled-jsx",
-		"dbaeumer.vscode-eslint",
 		"visualstudioexptteam.vscodeintellicode"
 	]
 
