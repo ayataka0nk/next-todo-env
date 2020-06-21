@@ -4,8 +4,6 @@ services:
         image: ayataka0nk/todo-view-next:${VIEW_TAG:-master}
         ports:
             - "8080:3000"
-        environment:
-            API_ORIGIN: http://todo-api-express
         networks:
             - front
 
