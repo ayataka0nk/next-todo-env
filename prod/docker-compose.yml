@@ -1,7 +1,7 @@
 version: "3"
 services:
     next-view-next:
-        image: ayataka0nk/todo-view-next:${VIEW_TAG:-master}
+        image: ayataka0nk/todo-view-next${VIEW_SUFFIX}:${VIEW_TAG:-master}
         ports:
             - "8080:3000"
         networks:
@@ -10,7 +10,7 @@ services:
     todo-api-express:
         image: ayataka0nk/todo-api-express:${API_TAG:-master}
         ports:
-            - "127.0.0.1:8090:80"
+            - "8090:80"
         networks:
             - front
             - back
