@@ -1,6 +1,6 @@
 version: "3"
 services:
-    next-view-next:
+    todo-view-next:
         image: ayataka0nk/todo-view-next${VIEW_SUFFIX}:${VIEW_TAG:-master}
         ports:
             - "8080:3000"
